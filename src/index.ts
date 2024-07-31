@@ -1,5 +1,6 @@
+import { Item } from "./components/Item";
 import "./styles/styles.css"
-import { todos } from "./utils/constants"
+import { todos } from "./utils/constants";
 
 const contentElement = document.querySelector('.todos__list')
 
@@ -8,6 +9,9 @@ const template = document.querySelector('#todo-item-template') as HTMLTemplateEl
 
 
 todos.forEach( item => {
-    const itemElement = createItem(item)
+    // const itemElement = createItem(template, item)
+    // contentElement.prepend(itemElement);
+    const todoItem = new Item(template);
+    const itemElement = todoItem.render(item);
     contentElement.prepend(itemElement);
 })
