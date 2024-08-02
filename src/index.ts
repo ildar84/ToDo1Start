@@ -1,5 +1,6 @@
 import { Form } from "./components/Form";
 import { Item } from "./components/Item";
+import { ToDoModel } from "./components/ToDoModel";
 import "./styles/styles.css"
 import { todos } from "./utils/constants";
 
@@ -25,3 +26,12 @@ todos.forEach( item => {
     const itemElement = todoItem.render(item);
     contentElement.prepend(itemElement);
 })
+
+const todoArray = new ToDoModel();
+todoArray.items = todos;
+console.log(todoArray.items)
+console.log(todoArray.addItem('Создать класс с данными'))
+console.log(todoArray.items)
+todoArray.removeItem('2')
+console.log(todoArray.items)
+
