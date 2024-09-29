@@ -1,14 +1,15 @@
+
 export class Form {
     protected formElement: HTMLFormElement;
     protected inputField: HTMLInputElement;
 
     constructor(formElement: HTMLFormElement, protected handleFormSubmit: Function) {
         this.formElement = formElement;
-        this.inputField = this.formElement.querySelector('.todo-form__input')
+        this.inputField = this.formElement.querySelector('.todo-form__input');
         this.formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
             this.handleFormSubmit(this.inputField.value);
-        });
+        })
     }
 
     render() {
@@ -19,7 +20,7 @@ export class Form {
         this.inputField.value = data;
     }
 
-    getvalue() {
+    getValue() {
         return this.inputField.value
     }
 
