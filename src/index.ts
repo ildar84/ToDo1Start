@@ -1,24 +1,21 @@
 import "./styles/styles.css"
+import { Item } from './components/Item';
 
 import { todos } from './utils/constants';
 
-const itemElement = document.querySelector('.todos__list');
+const contentElement = document.querySelector('.todos__list');
 
 const template = document.querySelector('#todo-item-template') as HTMLTemplateElement;
 
-function createItem (name :string) {
-    const templateElemnet = template.content.querySelector('.todo-item').cloneNode(true) as HTMLElement;
 
-    const item = templateElemnet.querySelector('.todo-item__text');
-
-    item.textContent = name;
-
-    return templateElemnet;
-
-}
+// todos.forEach( item => {
+//     const templateElemnet = createItem(item);
+//     contentElement.prepend(templateElement);
+// });
 
 todos.forEach( item => {
-    const templateElemnet = createItem(item);
-    itemElement.prepend(templateElemnet);
+    const todoItem = new Item(template);
+    const itemElement = todoItem.render(item); 
+    contentElement.prepend(itemElement);
 });
 
